@@ -15,6 +15,8 @@ public class Oscillator : MonoBehaviour
 
     void Update()
     {
+        if (period <= Mathf.Epsilon) { return; } // period가 0일 경우 무시
+
         const float tau = Mathf.PI * 2;
         float cycles = Time.time / period;
         float rawSinWave = Mathf.Sin(cycles * tau);
